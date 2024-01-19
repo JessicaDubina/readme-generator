@@ -3,7 +3,8 @@ let inquirer = require('inquirer');
 let fs = require('fs');
 
 //TODO: Make a text outline to populate with the answers
-const generateReadme = "";
+const generateReadme = ({title, description, installation, usage, license, contributing, tests, username}) => 
+    `Title: ${title}`;
 
 // const questions = [];
 inquirer.prompt([
@@ -22,11 +23,11 @@ inquirer.prompt([
         name: "instCheck",
         message: "Are there any installation instructions?",
     },
-    {
-        type: "editor",
-        name: "installation",
-        message: "Please enter the installation instructions.",
-    },
+    // {
+    //     type: "editor",
+    //     name: "installation",
+    //     message: "Please enter the installation instructions.",
+    // },
     {
         type: "input",
         name: "usage",
@@ -36,7 +37,7 @@ inquirer.prompt([
         type: "list",
         name: "license",
         message: "Choose a license.",
-        options: ["MIT", "Apache-2.0", "GPL-3.0","BSD-2-Clause","BSD-3-Clause","BSD-4-Clause", "UNLICENCED"],
+        choices: ["MIT", "Apache-2.0", "GPL-3.0","BSD-2-Clause","BSD-3-Clause","BSD-4-Clause", "UNLICENCED"],
     },
     {
         type: "input",
@@ -60,15 +61,27 @@ inquirer.prompt([
     },
 ])
 .then((answers) => {
+    console.log(answers);
     const readmePage = generateReadme(answers);
+    console.log(readmePage);
+
+    // fs.writeFile('README.md', readmePage, (err) => {
+
+    fs.writeFile(`${answers.tile}.md`, readmePage, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Generated new README.md");
+        }
+    }) 
+})
+.catch((error) => {
+    console.log("Something went wrong. Please try again.");
+    console.log(error);
 })
 
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
 // TODO: Create a function to initialize app
-function init() {}
+// function init() {}
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
