@@ -2,7 +2,9 @@
 let inquirer = require('inquirer');
 let fs = require('fs');
 
-// TODO: Create an array of questions for user input
+//TODO: Make a text outline to populate with the answers
+const generateReadme = "";
+
 // const questions = [];
 inquirer.prompt([
     {
@@ -57,6 +59,10 @@ inquirer.prompt([
         message: "Please enter your email address",
     },
 ])
+.then((answers) => {
+    const readmePage = generateReadme(answers);
+})
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
