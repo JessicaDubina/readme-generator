@@ -10,7 +10,7 @@ Run npm install to ensure you have the package before running this app
 ## Usage
 Please refer to the video below
 
-[Demo of how to use the app](./Readme-generator%20Demo.webm)
+[Demo of how to use the app](https://drive.google.com/file/d/18BCHI568OLNtDP1Fg1Ue6wprdvRvPWjm/preview)
 
 ## Credits
 N/A
