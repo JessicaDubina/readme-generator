@@ -3,8 +3,30 @@ let inquirer = require('inquirer');
 let fs = require('fs');
 
 //TODO: Make a text outline to populate with the answers
-const generateReadme = ({title, description, installation, usage, license, contributing, tests, username}) => 
-    `Title: ${title}`;
+const generateReadme = ({title, description, installation, usage, license, contributing, tests, username, email}) => 
+    `# ${title}
+    
+## Description
+${description}
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## Licence
+This project is covered under the ${license} license
+
+## Contributing
+${contributing}
+
+## Tests
+${tests}
+
+## Questions
+Github: ${username}\n
+For additional information, please contact me at ${email}`;
 
 // const questions = [];
 inquirer.prompt([
@@ -67,7 +89,7 @@ inquirer.prompt([
 
     // fs.writeFile('README.md', readmePage, (err) => {
 
-    fs.writeFile(`${answers.tile}.md`, readmePage, (err) => {
+    fs.writeFile(`${answers.title}.md`, readmePage, (err) => {
         if (err) {
             console.log(err);
         } else {
