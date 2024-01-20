@@ -9,6 +9,14 @@ const generateReadme = ({title, description, installation, usage, license, contr
 ## Description
 ${description}
 
+## Table of Contents
+[Installation](#installation)\n
+[Usage](#usage)\n
+[License](#license)\n
+[Contributing](#contributing)\n
+[Tests](#tests)\n
+[Questions](#questions)
+
 ## Installation
 ${installation}
 
